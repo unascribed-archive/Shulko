@@ -28,7 +28,6 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.Event.Result;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.oredict.OreDictionary;
 
 @Mod(modid=Shulko.MODID, name=Shulko.NAME, version=Shulko.VERSION)
 public class Shulko {
@@ -47,8 +46,6 @@ public class Shulko {
 	@EventHandler
 	public void onPreInit(FMLPreInitializationEvent e) {
 		proxy.preInit();
-		
-		OreDictionary.registerOre("shulkerBox", Blocks.WHITE_SHULKER_BOX);
 		
 		GameRegistry.registerTileEntity(TileEntityShulkoShulkerBox.class, new ResourceLocation("shulko", "shulker_box"));
 		
