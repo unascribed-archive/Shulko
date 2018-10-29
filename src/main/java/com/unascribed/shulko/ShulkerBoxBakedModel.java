@@ -52,7 +52,7 @@ public class ShulkerBoxBakedModel implements IBakedModel {
 
 	@Override
 	public TextureAtlasSprite getParticleTexture() {
-		return Minecraft.getMinecraft().getTextureMapBlocks().getAtlasSprite("shulko:textures/block/shulker_top_"+variant);
+		return Minecraft.getMinecraft().getTextureMapBlocks().getAtlasSprite("shulko:blocks/shulker_top_"+variant);
 	}
 
 	@Override
