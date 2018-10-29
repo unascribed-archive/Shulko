@@ -17,14 +17,16 @@ public class ItemSubbedShulkerBox extends ItemShulkerBox {
 	
 	@Override
 	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
-		for (EnumDyeColor color : EnumDyeColor.values()) {
-			if (color == EnumDyeColor.PURPLE) {
-				items.add(new ItemStack(Shulko.ACTUALLY_PURPLE_SHULKER_BOX));
-			} else {
-				items.add(new ItemStack(BlockShulkerBox.getBlockByColor(color)));
+		if (isInCreativeTab(tab)) {
+			for (EnumDyeColor color : EnumDyeColor.values()) {
+				if (color == EnumDyeColor.PURPLE) {
+					items.add(new ItemStack(Shulko.ACTUALLY_PURPLE_SHULKER_BOX));
+				} else {
+					items.add(new ItemStack(BlockShulkerBox.getBlockByColor(color)));
+				}
 			}
+			items.add(new ItemStack(Blocks.PURPLE_SHULKER_BOX));
 		}
-		items.add(new ItemStack(Blocks.PURPLE_SHULKER_BOX));
 	}
 	
 
