@@ -14,8 +14,10 @@ public class RecipeShulkoShulkerBoxColoring extends ShulkerBoxColoring {
 
 	@Override
 	public boolean matches(InventoryCrafting inv, World worldIn) {
-		for (int i = 0; i < inv.getSizeInventory(); i++) {
-			if (inv.getStackInSlot(i).getItem() == Item.getItemFromBlock(Shulko.CLAY_SHULKER_BOX)) return false;
+		if (Shulko.enableClayShulkerBox) {
+			for (int i = 0; i < inv.getSizeInventory(); i++) {
+				if (inv.getStackInSlot(i).getItem() == Item.getItemFromBlock(Shulko.CLAY_SHULKER_BOX)) return false;
+			}
 		}
 		return super.matches(inv, worldIn);
 	}

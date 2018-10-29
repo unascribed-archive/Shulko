@@ -26,25 +26,30 @@ public class ClientProxy extends Proxy {
 	@SubscribeEvent
 	public void onModelBake(ModelBakeEvent e) {
 		e.getModelRegistry().putObject(new ModelResourceLocation("shulko:actually_purple_shulker_box#inventory"), new ShulkerBoxBakedModel("actually_purple"));
-		e.getModelRegistry().putObject(new ModelResourceLocation("shulko:clay_shulker_box#inventory"), new ShulkerBoxBakedModel("clay"));
+		if (Shulko.enableClayShulkerBox) {
+			e.getModelRegistry().putObject(new ModelResourceLocation("shulko:clay_shulker_box#inventory"), new ShulkerBoxBakedModel("clay"));
+		}
 	}
 	
 	@SubscribeEvent
 	public void onTextureStitch(TextureStitchEvent.Pre e) {
 		e.getMap().registerSprite(new ResourceLocation("shulko:blocks/shulker_top_actually_purple"));
-		e.getMap().registerSprite(new ResourceLocation("shulko:blocks/shulker_top_clay"));
+		if (Shulko.enableClayShulkerBox) {
+			e.getMap().registerSprite(new ResourceLocation("shulko:blocks/shulker_top_clay"));
+		}
 	}
 	
 	@SubscribeEvent
 	public void onModelRegister(ModelRegistryEvent e) {
 		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(Shulko.ACTUALLY_PURPLE_SHULKER_BOX), 0, new ModelResourceLocation("shulko:actually_purple_shulker_box#inventory"));
-		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(Shulko.CLAY_SHULKER_BOX), 0, new ModelResourceLocation("shulko:clay_shulker_box#inventory"));
-		
 		ModelLoader.setCustomStateMapper(Shulko.ACTUALLY_PURPLE_SHULKER_BOX, new SimpleStateMapper(new ModelResourceLocation("shulko:actually_purple_shulker_box#inventory")));
-		ModelLoader.setCustomStateMapper(Shulko.CLAY_SHULKER_BOX, new SimpleStateMapper(new ModelResourceLocation("shulko:clay_shulker_box#inventory")));
-		
 		Item.getItemFromBlock(Shulko.ACTUALLY_PURPLE_SHULKER_BOX).setTileEntityItemStackRenderer(new ShulkoItemRenderer(Variant.ACTUALLY_PURPLE));
-		Item.getItemFromBlock(Shulko.CLAY_SHULKER_BOX).setTileEntityItemStackRenderer(new ShulkoItemRenderer(Variant.CLAY));
+		
+		if (Shulko.enableClayShulkerBox) {
+			ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(Shulko.CLAY_SHULKER_BOX), 0, new ModelResourceLocation("shulko:clay_shulker_box#inventory"));
+			ModelLoader.setCustomStateMapper(Shulko.CLAY_SHULKER_BOX, new SimpleStateMapper(new ModelResourceLocation("shulko:clay_shulker_box#inventory")));
+			Item.getItemFromBlock(Shulko.CLAY_SHULKER_BOX).setTileEntityItemStackRenderer(new ShulkoItemRenderer(Variant.CLAY));
+		}
 	}
 	
 }

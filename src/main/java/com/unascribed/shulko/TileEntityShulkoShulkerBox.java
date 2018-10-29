@@ -17,7 +17,7 @@ public class TileEntityShulkoShulkerBox extends TileEntityShulkerBox {
 	
 	public Variant getVariant() {
 		if (variant == null) {
-			if (getBlockType() == Shulko.CLAY_SHULKER_BOX) return Variant.CLAY;
+			if (Shulko.enableClayShulkerBox && getBlockType() == Shulko.CLAY_SHULKER_BOX) return Variant.CLAY;
 			return Variant.ACTUALLY_PURPLE;
 		}
 		return variant;
