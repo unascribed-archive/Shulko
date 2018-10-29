@@ -1,0 +1,16 @@
+[
+{
+  "modid": "shulko",
+  "name": "Shulko",
+  "description": "Adds a couple shulker boxes.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateJSON": "",
+  "authorList": ["Una Thompson (unascribed)"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
